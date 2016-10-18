@@ -1,6 +1,6 @@
 #React Multi-Lingual
 
-this package can handle strings and css files and based on redux. 
+this package can handle strings and css files and workes on top of redux. 
 I used react-redux connect function codebase
 
 ###Installation
@@ -27,14 +27,13 @@ export default {
 import {combineReducers, createStore, applyMiddleware, compose} from 'redux';
 import {counterReducer} from './reducers/counterReducer';
 import createLogger from 'redux-logger';
-import {localeReducer} from "../../../dist";
-import {cssLazyLoader} from "../../../dist/lazyLoader";
+import {localeReducer} from "react-multiselect";
+import {cssLazyLoader} from "react-multiselect/lazyLoader";
 
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 export const store = createStore(combineReducers({
 	counter: counterReducer,
 	locale: localeReducer(require("../../locales/index").default)
-}), composeEnhancers(
+}), 
 	applyMiddleware(
 		// createLogger()
 		cssLazyLoader(["LOCALE_CHANGED"], {
@@ -42,14 +41,14 @@ export const store = createStore(combineReducers({
 			"fa": "fa.css"
 		}),
 	)
-));
+);
 ```
 
 ###DashboardContainer.jsx
 ```js
 import React, {Component} from "react";
 import {connect} from 'react-redux';
-import translatable from "../../../../dist";
+import translatable from "react-multiselect";
 
 @connect(({counter}) => ({counter}))
 @translatable(({hello}) => ({hello}))
