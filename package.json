@@ -1,8 +1,8 @@
 {
-  "name": "react-webpack-babel",
-  "version": "0.0.3",
-  "description": "React Webpack Babel Starter Kit",
-  "main": "''",
+  "name": "react-multilingual",
+  "version": "1.0.1",
+  "description": "multilingual feature on strings | text and css style",
+  "main": "index.js",
   "scripts": {
     "build": "BABEL_ENV=production babel  src --out-dir dist",
     "example": "webpack-dev-server --config ./webpack/webpack.example.config.js --progress --profile --colors",
