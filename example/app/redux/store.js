@@ -11,8 +11,8 @@ export const store = createStore(combineReducers({
 	applyMiddleware(
 		// createLogger()
 		cssLazyLoader(["LOCALE_CHANGED"], {
-			"en": "en.css",
-			"fa": "fa.css"
+			"en": {address: "en.css", direction: "ltr"},
+			"fa": {address: "fa.css", direction: "rtl"}
 		}),
 	)
 ));
