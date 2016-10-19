@@ -1,9 +1,9 @@
 import React, {Component} from "react";
-import translatable from "./translatable"
+import Translatable from "./translatable";
 
-export function localeReducer(locales) {
-	translatable.prototype.locales = locales;
-	console.log(locales);
+export const localeReducer = locales => {
+	Translatable.prototype.locales = locales;
+
 	return function (state = "en", action) {
 		switch (action.type) {
 			case "LOCALE_CHANGED":
@@ -12,6 +12,7 @@ export function localeReducer(locales) {
 
 		return state;
 	}
-}
+};
 
-export default translatable;
+export default Translatable;
+

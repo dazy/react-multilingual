@@ -32,7 +32,7 @@ import {combineReducers, createStore, applyMiddleware, compose} from 'redux';
 import {counterReducer} from './reducers/counterReducer';
 import createLogger from 'redux-logger';
 import {localeReducer} from "react-multilingual";
-import {cssLazyLoader} from "react-multilingual/lazyLoader";
+import cssLazyLoader from "react-multilingual/lazyLoader";
 
 export const store = createStore(combineReducers({
 	counter: counterReducer,

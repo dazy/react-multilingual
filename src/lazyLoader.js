@@ -6,7 +6,7 @@ function loadCss(filename) {
 	head.parentNode.insertBefore(link, head);
 }
 
-export const cssLazyLoader = function (actionTypes = [], loaders = {}) {
+function cssLazyLoader(actionTypes = [], loaders = {}) {
 
 	return store => next => action => {
 		if (action.type == "LOCALE_CHANGED") {
@@ -16,4 +16,6 @@ export const cssLazyLoader = function (actionTypes = [], loaders = {}) {
 
 		return next(action)
 	};
-};
+}
+
+export default cssLazyLoader;

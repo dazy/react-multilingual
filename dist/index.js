@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
 	value: true
 });
-exports.localeReducer = localeReducer;
+exports.localeReducer = undefined;
 
 var _react = require("react");
 
@@ -15,9 +15,9 @@ var _translatable2 = _interopRequireDefault(_translatable);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function localeReducer(locales) {
+var localeReducer = exports.localeReducer = function localeReducer(locales) {
 	_translatable2.default.prototype.locales = locales;
-	console.log(locales);
+
 	return function () {
 		var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : "en";
 		var action = arguments[1];
@@ -29,6 +29,6 @@ function localeReducer(locales) {
 
 		return state;
 	};
-}
+};
 
 exports.default = _translatable2.default;
