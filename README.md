@@ -27,8 +27,8 @@ export default {
 import {combineReducers, createStore, applyMiddleware, compose} from 'redux';
 import {counterReducer} from './reducers/counterReducer';
 import createLogger from 'redux-logger';
-import {localeReducer} from "react-multiselect";
-import {cssLazyLoader} from "react-multiselect/lazyLoader";
+import {localeReducer} from "react-multilingual";
+import {cssLazyLoader} from "react-multilingual/lazyLoader";
 
 export const store = createStore(combineReducers({
 	counter: counterReducer,
@@ -48,7 +48,7 @@ export const store = createStore(combineReducers({
 ```js
 import React, {Component} from "react";
 import {connect} from 'react-redux';
-import translatable from "react-multiselect";
+import translatable from "react-multilingual";
 
 @connect(({counter}) => ({counter}))
 @translatable(({hello}) => ({hello}))
