@@ -5,7 +5,7 @@ I used react-redux connect function codebase
 
 ###Installation
 ```s
-npm i -S react-multiselect
+npm i -S react-multilingual
 ```
 
 a glimpse on how you handle your stuff would be easy as this. 
