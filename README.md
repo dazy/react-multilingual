@@ -9,7 +9,11 @@ npm i -S react-multilingual
 ```
 
 a glimpse on how you handle your stuff would be easy as this. 
-for better clarifications see example folder 
+for better clarifications see example folder and run it by
+```js
+npm install && npm run example
+```
+
 ###locale.js
 ```js
 export default {
