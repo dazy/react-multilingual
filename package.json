@@ -1,6 +1,6 @@
 {
   "name": "react-multilingual",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "multilingual feature on strings | text and css style",
   "main": "index.js",
   "scripts": {
