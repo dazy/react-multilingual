@@ -1,7 +1,8 @@
 import React, {Component} from "react";
 import Translatable from "./translatable";
+import cssLazyLoader from "./lazyLoader";
 
-export const localeReducer = locales => {
+const localeReducer = locales => {
 	Translatable.prototype.locales = locales;
 
 	return function (state = "en", action) {
@@ -14,5 +15,9 @@ export const localeReducer = locales => {
 	}
 };
 
-export default Translatable;
+module.exports = {
+	translatable: Translatable,
+	cssLazyLoader,
+	localeReducer
+};
 

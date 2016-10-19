@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import {connect} from 'react-redux';
-import translatable from "../../../../dist";
+import {translatable} from "../../../../dist";
 
 @connect(({counter}) => ({counter}))
 @translatable(({hello}) => ({hello}))

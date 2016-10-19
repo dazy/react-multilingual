@@ -1,8 +1,7 @@
 import {combineReducers, createStore, applyMiddleware, compose} from 'redux';
 import {counterReducer} from './reducers/counterReducer';
 import createLogger from 'redux-logger';
-import {localeReducer} from "../../../dist";
-import cssLazyLoader from "../../../dist/lazyLoader";
+import {localeReducer, cssLazyLoader} from "../../../dist";
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 export const store = createStore(combineReducers({

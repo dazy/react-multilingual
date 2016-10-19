@@ -1,10 +1,5 @@
 "use strict";
 
-Object.defineProperty(exports, "__esModule", {
-	value: true
-});
-exports.localeReducer = undefined;
-
 var _react = require("react");
 
 var _react2 = _interopRequireDefault(_react);
@@ -13,9 +8,13 @@ var _translatable = require("./translatable");
 
 var _translatable2 = _interopRequireDefault(_translatable);
 
+var _lazyLoader = require("./lazyLoader");
+
+var _lazyLoader2 = _interopRequireDefault(_lazyLoader);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var localeReducer = exports.localeReducer = function localeReducer(locales) {
+var localeReducer = function localeReducer(locales) {
 	_translatable2.default.prototype.locales = locales;
 
 	return function () {
@@ -31,4 +30,8 @@ var localeReducer = exports.localeReducer = function localeReducer(locales) {
 	};
 };
 
-exports.default = _translatable2.default;
+module.exports = {
+	translatable: _translatable2.default,
+	cssLazyLoader: _lazyLoader2.default,
+	localeReducer: localeReducer
+};
