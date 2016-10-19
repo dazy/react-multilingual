@@ -6,7 +6,7 @@ import {localeReducer, cssLazyLoader} from "../../../dist";
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 export const store = createStore(combineReducers({
 	counter: counterReducer,
-	locale: localeReducer(require("../../locales/index").default)
+	locale: localeReducer("en", require("../../locales/index").default)
 }), composeEnhancers(
 	applyMiddleware(
 		// createLogger()

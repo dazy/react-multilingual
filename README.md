@@ -35,7 +35,7 @@ import {localeReducer, cssLazyLoader} from "react-multilingual";
 
 export const store = createStore(combineReducers({
 	counter: counterReducer,
-	locale: localeReducer(require("../../locales/index").default)
+	locale: localeReducer("en", require("../../locales/index").default)
 }), 
 	applyMiddleware(
 		// createLogger()
