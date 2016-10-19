@@ -7,8 +7,7 @@ function loadCss(filename) {
 	var link = document.createElement('link');
 	link.rel = 'stylesheet';
 	link.href = filename;
-	var head = document.getElementsByTagName('head')[0];
-	head.parentNode.insertBefore(link, head);
+	document.head.appendChild(link);
 }
 
 function cssLazyLoader() {
