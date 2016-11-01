@@ -221,14 +221,12 @@ function translatable(mapStateToProps, mapDispatchToProps, mergeProps, options =
 			}
 
 			componentWillReceiveProps(nextProps) {
-				console.log("componentWillReceiveProps", nextProps);
 				if (!pure || !shallowEqual(nextProps, this.props)) {
 					this.haveOwnPropsChanged = true;
 				}
 			}
 
 			componentWillUnmount() {
-				console.log("componentWillUnmount");
 				this.tryUnsubscribe();
 				this.clearCache();
 			}
