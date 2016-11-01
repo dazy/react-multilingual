@@ -1,10 +1,10 @@
-import {Component, createElement} from 'react';
-import storeShape from 'react-redux/lib/utils/storeShape';
-import shallowEqual from 'react-redux/lib/utils/shallowEqual';
-import warning from 'react-redux/lib/utils/warning';
-import isPlainObject from 'lodash/isPlainObject';
-import hoistStatics from 'hoist-non-react-statics';
-import invariant from 'invariant';
+import {Component, createElement} from "react";
+import storeShape from "react-redux/lib/utils/storeShape";
+import shallowEqual from "react-redux/lib/utils/shallowEqual";
+import warning from "react-redux/lib/utils/warning";
+import isPlainObject from "lodash/isPlainObject";
+import hoistStatics from "hoist-non-react-statics";
+import invariant from "invariant";
 
 const defaultMapStateToProps = state => ({}); // eslint-disable-line no-unused-vars
 const defaultMergeProps = (stateProps, dispatchProps, parentProps) => ({

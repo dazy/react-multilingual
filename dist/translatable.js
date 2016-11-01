@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 Object.defineProperty(exports, "__esModule", {
 	value: true
@@ -8,29 +8,29 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-var _react = require('react');
+var _react = require("react");
 
-var _storeShape = require('react-redux/lib/utils/storeShape');
+var _storeShape = require("react-redux/lib/utils/storeShape");
 
 var _storeShape2 = _interopRequireDefault(_storeShape);
 
-var _shallowEqual = require('react-redux/lib/utils/shallowEqual');
+var _shallowEqual = require("react-redux/lib/utils/shallowEqual");
 
 var _shallowEqual2 = _interopRequireDefault(_shallowEqual);
 
-var _warning = require('react-redux/lib/utils/warning');
+var _warning = require("react-redux/lib/utils/warning");
 
 var _warning2 = _interopRequireDefault(_warning);
 
-var _isPlainObject = require('lodash/isPlainObject');
+var _isPlainObject = require("lodash/isPlainObject");
 
 var _isPlainObject2 = _interopRequireDefault(_isPlainObject);
 
-var _hoistNonReactStatics = require('hoist-non-react-statics');
+var _hoistNonReactStatics = require("hoist-non-react-statics");
 
 var _hoistNonReactStatics2 = _interopRequireDefault(_hoistNonReactStatics);
 
-var _invariant = require('invariant');
+var _invariant = require("invariant");
 
 var _invariant2 = _interopRequireDefault(_invariant);
 
@@ -93,11 +93,11 @@ function translatable(mapStateToProps, mapDispatchToProps, mergeProps) {
 	var version = nextVersion++;
 
 	return function wrapWithTranslate(WrappedComponent) {
-		var connectDisplayName = 'Translated(' + getDisplayName(WrappedComponent) + ')';
+		var connectDisplayName = "Translated(" + getDisplayName(WrappedComponent) + ")";
 
 		function checkStateShape(props, methodName) {
 			if (!(0, _isPlainObject2.default)(props)) {
-				(0, _warning2.default)(methodName + '() in ' + connectDisplayName + ' must return a plain object. ' + ('Instead received ' + props + '.'));
+				(0, _warning2.default)(methodName + "() in " + connectDisplayName + " must return a plain object. " + ("Instead received " + props + "."));
 			}
 		}
 
@@ -113,7 +113,7 @@ function translatable(mapStateToProps, mapDispatchToProps, mergeProps) {
 			_inherits(Translated, _Component);
 
 			_createClass(Translated, [{
-				key: 'shouldComponentUpdate',
+				key: "shouldComponentUpdate",
 				value: function shouldComponentUpdate() {
 					return !pure || this.haveOwnPropsChanged || this.hasStoreStateChanged;
 				}
@@ -127,7 +127,7 @@ function translatable(mapStateToProps, mapDispatchToProps, mergeProps) {
 				_this.version = version;
 				_this.store = props.store || context.store;
 
-				(0, _invariant2.default)(_this.store, 'Could not find "store" in either the context or ' + ('props of "' + connectDisplayName + '". ') + 'Either wrap the root component in a <Provider>, ' + ('or explicitly pass "store" as a prop to "' + connectDisplayName + '".'));
+				(0, _invariant2.default)(_this.store, "Could not find \"store\" in either the context or " + ("props of \"" + connectDisplayName + "\". ") + "Either wrap the root component in a <Provider>, " + ("or explicitly pass \"store\" as a prop to \"" + connectDisplayName + "\"."));
 
 				var storeState = _this.store.getState();
 				_this.state = { storeState: storeState };
@@ -136,7 +136,7 @@ function translatable(mapStateToProps, mapDispatchToProps, mergeProps) {
 			}
 
 			_createClass(Translated, [{
-				key: 'computeStateProps',
+				key: "computeStateProps",
 				value: function computeStateProps(store, props) {
 					if (!this.finalMapStateToProps) {
 						return this.configureFinalMapState(store, props);
@@ -155,7 +155,7 @@ function translatable(mapStateToProps, mapDispatchToProps, mergeProps) {
 					return stateProps;
 				}
 			}, {
-				key: 'configureFinalMapState',
+				key: "configureFinalMapState",
 				value: function configureFinalMapState(store, props) {
 					var locales = translatable.prototype.locales;
 					var locale = locales[store.getState().locale];
@@ -177,7 +177,7 @@ function translatable(mapStateToProps, mapDispatchToProps, mergeProps) {
 					return mappedState;
 				}
 			}, {
-				key: 'computeDispatchProps',
+				key: "computeDispatchProps",
 				value: function computeDispatchProps(store, props) {
 					if (!this.finalMapDispatchToProps) {
 						return this.configureFinalMapDispatch(store, props);
@@ -193,7 +193,7 @@ function translatable(mapStateToProps, mapDispatchToProps, mergeProps) {
 					return dispatchProps;
 				}
 			}, {
-				key: 'configureFinalMapDispatch',
+				key: "configureFinalMapDispatch",
 				value: function configureFinalMapDispatch(store, props) {
 					var mappedDispatch = mapDispatch(store.dispatch, props);
 					var isFactory = typeof mappedDispatch === 'function';
@@ -211,7 +211,7 @@ function translatable(mapStateToProps, mapDispatchToProps, mergeProps) {
 					return mappedDispatch;
 				}
 			}, {
-				key: 'updateStatePropsIfNeeded',
+				key: "updateStatePropsIfNeeded",
 				value: function updateStatePropsIfNeeded() {
 					var nextStateProps = this.computeStateProps(this.store, this.props);
 					if (this.stateProps && (0, _shallowEqual2.default)(nextStateProps, this.stateProps)) {
@@ -222,7 +222,7 @@ function translatable(mapStateToProps, mapDispatchToProps, mergeProps) {
 					return true;
 				}
 			}, {
-				key: 'updateDispatchPropsIfNeeded',
+				key: "updateDispatchPropsIfNeeded",
 				value: function updateDispatchPropsIfNeeded() {
 					var nextDispatchProps = this.computeDispatchProps(this.store, this.props);
 					if (this.dispatchProps && (0, _shallowEqual2.default)(nextDispatchProps, this.dispatchProps)) {
@@ -233,7 +233,7 @@ function translatable(mapStateToProps, mapDispatchToProps, mergeProps) {
 					return true;
 				}
 			}, {
-				key: 'updateMergedPropsIfNeeded',
+				key: "updateMergedPropsIfNeeded",
 				value: function updateMergedPropsIfNeeded() {
 					var nextMergedProps = computeMergedProps(this.stateProps, this.dispatchProps, this.props);
 					if (this.mergedProps && checkMergedEquals && (0, _shallowEqual2.default)(nextMergedProps, this.mergedProps)) {
@@ -244,12 +244,12 @@ function translatable(mapStateToProps, mapDispatchToProps, mergeProps) {
 					return true;
 				}
 			}, {
-				key: 'isSubscribed',
+				key: "isSubscribed",
 				value: function isSubscribed() {
 					return typeof this.unsubscribe === 'function';
 				}
 			}, {
-				key: 'trySubscribe',
+				key: "trySubscribe",
 				value: function trySubscribe() {
 					if (shouldSubscribe && !this.unsubscribe) {
 						this.unsubscribe = this.store.subscribe(this.handleChange.bind(this));
@@ -257,7 +257,7 @@ function translatable(mapStateToProps, mapDispatchToProps, mergeProps) {
 					}
 				}
 			}, {
-				key: 'tryUnsubscribe',
+				key: "tryUnsubscribe",
 				value: function tryUnsubscribe() {
 					if (this.unsubscribe) {
 						this.unsubscribe();
@@ -265,25 +265,25 @@ function translatable(mapStateToProps, mapDispatchToProps, mergeProps) {
 					}
 				}
 			}, {
-				key: 'componentDidMount',
+				key: "componentDidMount",
 				value: function componentDidMount() {
 					this.trySubscribe();
 				}
 			}, {
-				key: 'componentWillReceiveProps',
+				key: "componentWillReceiveProps",
 				value: function componentWillReceiveProps(nextProps) {
 					if (!pure || !(0, _shallowEqual2.default)(nextProps, this.props)) {
 						this.haveOwnPropsChanged = true;
 					}
 				}
 			}, {
-				key: 'componentWillUnmount',
+				key: "componentWillUnmount",
 				value: function componentWillUnmount() {
 					this.tryUnsubscribe();
 					this.clearCache();
 				}
 			}, {
-				key: 'clearCache',
+				key: "clearCache",
 				value: function clearCache() {
 					this.dispatchProps = null;
 					this.stateProps = null;
@@ -297,7 +297,7 @@ function translatable(mapStateToProps, mapDispatchToProps, mergeProps) {
 					this.finalMapStateToProps = null;
 				}
 			}, {
-				key: 'handleChange',
+				key: "handleChange",
 				value: function handleChange() {
 					if (!this.unsubscribe) {
 						return;
@@ -324,7 +324,7 @@ function translatable(mapStateToProps, mapDispatchToProps, mergeProps) {
 					this.setState({ storeState: storeState });
 				}
 			}, {
-				key: 'render',
+				key: "render",
 				value: function render() {
 					var haveOwnPropsChanged = this.haveOwnPropsChanged;
 					var hasStoreStateChanged = this.hasStoreStateChanged;
