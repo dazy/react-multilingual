@@ -18,15 +18,13 @@ var localeReducer = function localeReducer() {
 	var initialState = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : "en";
 	var locales = arguments[1];
 
-	_translatable2.default.prototype.locales = locales;
-
 	return function () {
 		var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
 		var action = arguments[1];
 
 		switch (action.type) {
 			case "LOCALE_CHANGED":
-				return action.locale;
+				return action.time;
 		}
 
 		return state;

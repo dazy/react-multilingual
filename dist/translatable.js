@@ -272,7 +272,6 @@ function translatable(mapStateToProps, mapDispatchToProps, mergeProps) {
 			}, {
 				key: 'componentWillReceiveProps',
 				value: function componentWillReceiveProps(nextProps) {
-					console.log("componentWillReceiveProps", nextProps);
 					if (!pure || !(0, _shallowEqual2.default)(nextProps, this.props)) {
 						this.haveOwnPropsChanged = true;
 					}
@@ -280,7 +279,6 @@ function translatable(mapStateToProps, mapDispatchToProps, mergeProps) {
 			}, {
 				key: 'componentWillUnmount',
 				value: function componentWillUnmount() {
-					console.log("componentWillUnmount");
 					this.tryUnsubscribe();
 					this.clearCache();
 				}
