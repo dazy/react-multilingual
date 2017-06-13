@@ -1,20 +1,27 @@
-let loaderInterval;
+let loaderInterval = null;
 let node = null;
 let intervalCounter = 0;
 function loadCss(filename) {
 	var link = document.createElement('link');
 	link.rel = 'stylesheet';
 	link.href = filename;
-	link.setAttribute("data-style", "clickyab");
+	link.setAttribute("data-style", "react");
 	document.head.appendChild(link);
 }
 
 function insertNode() {
 	var div = document.createElement('div');
-	div.id = "clickyab_rtl_ltr_node";
+	div.id = "react_rtl_ltr_node";
 	document.body.appendChild(div);
 
 	return div;
+}
+
+function terminateOlderCss() {
+	let styles = document.querySelectorAll("link[data-style='react']");
+	for (let i = 0; i < styles.length - 1; i++) {
+		styles[i].remove();
+	}
 }
 
 function checkCssLoader(direction) {
@@ -28,26 +35,18 @@ function checkCssLoader(direction) {
 
 		// for slow internet connection
 		++intervalCounter;
-		if (intervalCounter == 40) {
+		if (intervalCounter === 40) {
 			clearInterval(loaderInterval);
 			terminateOlderCss();
 		}
 	}, 200);
 }
 
-function terminateOlderCss() {
-	let styles = document.querySelectorAll("link[data-style='clickyab']");
-	for (let i = 0; i < styles.length - 1; i++) {
-		styles[i].remove();
-	}
-}
-
-
 function cssLazyLoader(actionTypes = [], loaders = {}) {
 	node = insertNode();
 
-	return store => next => action => {
-		if (action.type == "LOCALE_CHANGED") {
+	return () => next => action => {
+		if (action.type === "LOCALE_CHANGED") {
 			let css = loaders[action.locale];
 			loadCss(css.address);
 

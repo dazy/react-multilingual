@@ -1,8 +1,6 @@
 import React, {Component} from "react";
-import {connect} from 'react-redux';
 import {translatable} from "../../../../dist";
 
-@connect(({counter}) => ({counter}))
 @translatable(({hello}) => ({hello}))
 export default class DashboardContainer extends Component {
 	render() {
@@ -12,6 +10,7 @@ export default class DashboardContainer extends Component {
 			<div>
 				<button onClick={() => changeLocale("en")}>en</button>
 				<button onClick={() => changeLocale("fa")}>fa</button>
+				<br />
 				<p>
 					{hello}
 				</p>

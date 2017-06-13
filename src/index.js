@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+// import React, {Component} from "react";
 import Translatable from "./translatable";
 import cssLazyLoader from "./lazyLoader";
 

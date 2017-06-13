@@ -12,6 +12,7 @@
    sourceType: "module"
    ecmaFeatures:
     jsx: true
+    experimentalObjectRestSpread: true
 
   globals:
     __DEV__: true

@@ -32,10 +32,8 @@ let nextVersion = 0;
 function translatable(mapStateToProps, mapDispatchToProps, mergeProps, options = {}) {
 	const shouldSubscribe = Boolean(mapStateToProps);
 	const mapState = mapStateToProps || defaultMapStateToProps;
-	let locale = null;
 
-	let mapDispatch;
-	mapDispatch = (dispatch) => {
+	let mapDispatch = (dispatch) => {
 		return {
 			changeLocale: (locale) => {
 				dispatch({type: "LOCALE_CHANGED", locale});
@@ -101,8 +99,6 @@ function translatable(mapStateToProps, mapDispatchToProps, mergeProps, options =
 				const locales = translatable.prototype.locales;
 				const locale = locales[store.getState().locale];
 
-
-				const state = store.getState();
 				const stateProps = this.doStatePropsDependOnOwnProps ?
 					this.finalMapStateToProps(locale, props) :
 					this.finalMapStateToProps(locale);
