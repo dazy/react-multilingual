@@ -70,10 +70,8 @@ function translatable(mapStateToProps, mapDispatchToProps, mergeProps) {
 
 	var shouldSubscribe = Boolean(mapStateToProps);
 	var mapState = mapStateToProps || defaultMapStateToProps;
-	var locale = null;
 
-	var mapDispatch = void 0;
-	mapDispatch = function mapDispatch(dispatch) {
+	var mapDispatch = function mapDispatch(dispatch) {
 		return {
 			changeLocale: function changeLocale(locale) {
 				dispatch({ type: "LOCALE_CHANGED", locale: locale });
@@ -82,10 +80,10 @@ function translatable(mapStateToProps, mapDispatchToProps, mergeProps) {
 	};
 
 	var finalMergeProps = mergeProps || defaultMergeProps;
-	var _options$pure = options.pure;
-	var pure = _options$pure === undefined ? true : _options$pure;
-	var _options$withRef = options.withRef;
-	var withRef = _options$withRef === undefined ? false : _options$withRef;
+	var _options$pure = options.pure,
+	    pure = _options$pure === undefined ? true : _options$pure,
+	    _options$withRef = options.withRef,
+	    withRef = _options$withRef === undefined ? false : _options$withRef;
 
 	var checkMergedEquals = pure && finalMergeProps !== defaultMergeProps;
 
@@ -145,7 +143,6 @@ function translatable(mapStateToProps, mapDispatchToProps, mergeProps) {
 					var locales = translatable.prototype.locales;
 					var locale = locales[store.getState().locale];
 
-					var state = store.getState();
 					var stateProps = this.doStatePropsDependOnOwnProps ? this.finalMapStateToProps(locale, props) : this.finalMapStateToProps(locale);
 
 					if (process.env.NODE_ENV !== 'production') {
@@ -326,11 +323,11 @@ function translatable(mapStateToProps, mapDispatchToProps, mergeProps) {
 			}, {
 				key: "render",
 				value: function render() {
-					var haveOwnPropsChanged = this.haveOwnPropsChanged;
-					var hasStoreStateChanged = this.hasStoreStateChanged;
-					var haveStatePropsBeenPrecalculated = this.haveStatePropsBeenPrecalculated;
-					var statePropsPrecalculationError = this.statePropsPrecalculationError;
-					var renderedElement = this.renderedElement;
+					var haveOwnPropsChanged = this.haveOwnPropsChanged,
+					    hasStoreStateChanged = this.hasStoreStateChanged,
+					    haveStatePropsBeenPrecalculated = this.haveStatePropsBeenPrecalculated,
+					    statePropsPrecalculationError = this.statePropsPrecalculationError,
+					    renderedElement = this.renderedElement;
 
 
 					this.haveOwnPropsChanged = false;

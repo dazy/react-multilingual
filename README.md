@@ -1,6 +1,6 @@
 #React Multi-Lingual
 
-this package can handle strings and css files and workes on top of redux. 
+This package can handle strings and css files and workes on top of redux. 
 I used react-redux connect function codebase
 
 ###Installation
@@ -8,7 +8,7 @@ I used react-redux connect function codebase
 npm i -S react-multilingual
 ```
 
-a glimpse on how you handle your stuff would be easy as this. 
+A glimpse on how you handle your stuff would be easy as this. 
 for better clarifications see example folder and run it by
 ```js
 npm install && npm run example
@@ -25,20 +25,19 @@ export default {
 	}
 }
 ```
+Note that this could be a nested object and as deep as you want, to hold all strings and translations.
 
 ###store.js
+Note that "en.css" and "fa.css" should be accessible from public html file (they will be injected at run-time). 
+In this example they are located at 'example/public' directory.
 ```js
 import {combineReducers, createStore, applyMiddleware, compose} from 'redux';
-import {counterReducer} from './reducers/counterReducer';
-import createLogger from 'redux-logger';
 import {localeReducer, cssLazyLoader} from "react-multilingual";
 
 export const store = createStore(combineReducers({
-	counter: counterReducer,
 	locale: localeReducer("en", require("../../locales/index").default)
 }), 
 	applyMiddleware(
-		// createLogger()
 		cssLazyLoader(["LOCALE_CHANGED"], {
 			"en": {address: "en.css", direction: "ltr"},
 			"fa": {address: "fa.css", direction: "rtl"}
@@ -50,10 +49,8 @@ export const store = createStore(combineReducers({
 ###DashboardContainer.jsx
 ```js
 import React, {Component} from "react";
-import {connect} from 'react-redux';
 import {translatable} from "react-multilingual";
 
-@connect(({counter}) => ({counter}))
 @translatable(({hello}) => ({hello}))
 export default class DashboardContainer extends Component {
 	render() {
@@ -71,7 +68,31 @@ export default class DashboardContainer extends Component {
 	}
 }
 ```
+Which could be written like this too:
+```js
+import React, {Component} from "react";
+import {translatable} from "react-multilingual";
 
+class DashboardContainer extends Component {
+	render() {
+		let {hello, changeLocale} = this.props;
+
+		return (
+			<div>
+				<button onClick={() => changeLocale("en")}>en</button>
+				<button onClick={() => changeLocale("fa")}>fa</button>
+				<p>
+					{hello}
+				</p>
+			</div>
+		);
+	}
+}
+
+const mapTranslationsToProps = ({hello}) => ({hello});
+
+export default translatable(mapTranslationsToProps)(DashboardContainer);
+```
 
 ###MIT licence
   
