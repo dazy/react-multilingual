@@ -1,9 +1,9 @@
-#React Multi-Lingual
+# React Multi-Lingual
 
 This package can handle strings and css files and workes on top of redux. 
 I used react-redux connect function codebase
 
-###Installation
+### Installation
 ```s
 npm i -S react-multilingual
 ```
@@ -14,7 +14,7 @@ for better clarifications see example folder and run it by
 npm install && npm run example
 ```
 
-###locale.js
+### locale.js
 ```js
 export default {
 	fa: {
@@ -27,7 +27,7 @@ export default {
 ```
 Note that this could be a nested object and as deep as you want, to hold all strings and translations.
 
-###store.js
+### store.js
 Note that "en.css" and "fa.css" should be accessible from public html file (they will be injected at run-time). 
 In this example they are located at 'example/public' directory.
 ```js
@@ -46,7 +46,7 @@ export const store = createStore(combineReducers({
 );
 ```
 
-###DashboardContainer.jsx
+### DashboardContainer.jsx
 ```js
 import React, {Component} from "react";
 import {translatable} from "react-multilingual";
@@ -94,5 +94,5 @@ const mapTranslationsToProps = ({hello}) => ({hello});
 export default translatable(mapTranslationsToProps)(DashboardContainer);
 ```
 
-###MIT licence
+### MIT licence
   
