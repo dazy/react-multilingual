@@ -1,6 +1,6 @@
 # React Multi-Lingual
 
-This package can handle strings and css files and workes on top of redux. 
+This package can handle strings and css files and works on top of redux. 
 I used react-redux connect function codebase
 
 ### Installation
