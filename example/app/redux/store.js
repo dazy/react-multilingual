@@ -1,15 +1,13 @@
-import {combineReducers, createStore, applyMiddleware, compose} from 'redux';
+import {combineReducers, createStore, applyMiddleware} from 'redux';
 import {localeReducer, cssLazyLoader} from "../../../dist";
 
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-
 export const store = createStore(combineReducers({
-	locale: localeReducer("en", require("../../locales/index").default)
-}), composeEnhancers(
+		locale: localeReducer("en", require("../../locales/index").default)
+	}),
 	applyMiddleware(
 		cssLazyLoader(["LOCALE_CHANGED"], {
 			"en": {address: "en.css", direction: "ltr"},
 			"fa": {address: "fa.css", direction: "rtl"}
 		}),
 	)
-));
+);
